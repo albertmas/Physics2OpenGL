@@ -121,6 +121,23 @@ bool ModulePhysics3D::CleanUp()
 	}
 
 	// TODO 2: Free all collision shapes and bodies
+	btCollisionShape* iterator; // = colShapeList.getFirst()->data;
+	for (int i = 0; i < colShapeList.count(); i++)
+	{
+		colShapeList.at(i, iterator);
+		delete iterator;
+		iterator = nullptr;
+	}
+	colShapeList.clear();
+
+	PhysBody3D* temp;
+	for (int j = 0; j < pbodyList.count(); j++)
+	{
+		pbodyList.at(j, temp);
+		delete temp;
+		temp = nullptr;
+	}
+	pbodyList.clear();
 
 	delete world;
 
@@ -132,6 +149,7 @@ PhysBody3D* ModulePhysics3D::AddBody(const Sphere& sphere, float mass)
 {
 	btCollisionShape* colShape = new btSphereShape(sphere.radius);
 	// TODO 1: Store all collision shapes
+	colShapeList.add(colShape);
 
 	btTransform startTransform;
 	startTransform.setFromOpenGLMatrix(&sphere.transform);
@@ -146,6 +164,7 @@ PhysBody3D* ModulePhysics3D::AddBody(const Sphere& sphere, float mass)
 	btRigidBody* body = new btRigidBody(rbInfo);
 	// TODO 1: Store all bodies
 	PhysBody3D* pbody = new PhysBody3D(body);
+	pbodyList.add(pbody);
 
 	body->setUserPointer(pbody);
 	world->addRigidBody(body);

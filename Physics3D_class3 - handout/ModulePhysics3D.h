@@ -39,6 +39,8 @@ private:
 	DebugDrawer*						debug_draw;
 
 	// TODO 1
+	p2List<btCollisionShape*>			colShapeList;
+	p2List<PhysBody3D*>					pbodyList;
 };
 
 class DebugDrawer : public btIDebugDraw
