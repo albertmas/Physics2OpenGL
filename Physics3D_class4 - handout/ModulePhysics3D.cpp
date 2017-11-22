@@ -207,6 +207,14 @@ PhysBody3D* ModulePhysics3D::AddBody(const Sphere& sphere, float mass)
 
 // ---------------------------------------------------------
 
+void ModulePhysics3D::AddJoint(PhysBody3D &bodyA, PhysBody3D &bodyB, const vec3 &anchorA, const vec3 &anchorB)
+{
+	btTypedConstraint* constraint;
+	btPoint2PointConstraint(bodyA, bodyB, anchorA, anchorB);
+}
+
+// ---------------------------------------------------------
+
 
 // =============================================
 void DebugDrawer::drawLine(const btVector3& from, const btVector3& to, const btVector3& color)
