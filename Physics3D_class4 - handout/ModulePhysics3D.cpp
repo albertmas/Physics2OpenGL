@@ -207,11 +207,11 @@ PhysBody3D* ModulePhysics3D::AddBody(const Sphere& sphere, float mass)
 
 // ---------------------------------------------------------
 
-void ModulePhysics3D::AddJoint(PhysBody3D &bodyA, PhysBody3D &bodyB, const vec3 &anchorA, const vec3 &anchorB)
-{
-	btTypedConstraint* constraint;
-	btPoint2PointConstraint(bodyA, bodyB, anchorA, anchorB);
-}
+//void ModulePhysics3D::AddJoint(PhysBody3D &bodyA, PhysBody3D &bodyB, const vec3 &anchorA, const vec3 &anchorB)
+//{
+//	btTypedConstraint* constraint;
+//	btPoint2PointConstraint(bodyA, bodyB, anchorA, anchorB);
+//}
 
 // ---------------------------------------------------------
 
